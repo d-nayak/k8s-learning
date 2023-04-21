@@ -8,4 +8,8 @@ Back:
 - index creation using bash-tree
 - copy-out to nginx container 
 
-- 
+Usage:
+$ docker compose up --build
+
+Open browser at host:8000
+Enjoy!
