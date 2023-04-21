@@ -1,0 +1,7 @@
+version: '3'
+services:
+  rocky9-web:
+    build: .
+    restart: always
+    ports:
+    - "8000:80" # it's nginx now!
