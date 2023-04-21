@@ -1,0 +1,16 @@
+version: '3'
+services:
+  nginx:
+    build:
+      context: ./nginx
+      dockerfile: Dockerfile.nginx
+    ports:
+    - "9000:80"
+  converter:
+    build: 
+      context: ./webserver
+      dockerfile: Dockerfile.converter
+  factorial:
+    build: 
+      context: ./webserver
+      dockerfile: Dockerfile.factorial
