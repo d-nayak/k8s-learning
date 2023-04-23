@@ -1,5 +1,6 @@
 from flask import Flask
 from flask import request
+import socket
 
 app = Flask(__name__)
 
@@ -10,6 +11,8 @@ def index():
         factorial = get_factorial(number)
     else:
         factorial = ""
+
+    containerID = socket.gethostname()
         
     return (
 	"""<form action="" method="get">
@@ -20,6 +23,9 @@ def index():
         + number 
         + "  Factorial: "
 	+ factorial
+        + "<hr>"
+        + "Server by container ID: "
+        + containerID
     )
 
 def get_factorial(number):

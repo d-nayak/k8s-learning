@@ -1,5 +1,6 @@
 from flask import Flask
 from flask import request
+import socket
 
 app = Flask(__name__)
 
@@ -10,6 +11,8 @@ def index():
         fahrenheit = fahrenheit_from(celsius)
     else:
         fahrenheit = ""
+    
+    containerID = socket.gethostname()
 
     return (
         """<form action="" method="get">
@@ -20,6 +23,9 @@ def index():
         + celsius
         + "  Fahrenheit: "
         + fahrenheit
+        + "<hr>"
+        + "Served by container ID: "
+        + containerID
     )
 
 def fahrenheit_from(celsius):
