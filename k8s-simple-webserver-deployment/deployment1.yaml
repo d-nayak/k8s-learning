@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: my-webserver
+  labels:
+    app: converter-deployment
+spec:
+  template:
+    metadata:
+      name: converter-pod
+      labels: 
+        app: converter
+    spec:
+      containers:
+        - name: converter
+          image: localhost:5000/converter1
+          imagePullPolicy: Never
+          ports:
+          - containerPort: 8080
+  replicas: 1
+  selector:
+    matchLabels: 
+      app: converter
+
+          
